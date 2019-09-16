@@ -5,7 +5,7 @@ services:
     restart: always
     build: ./frontend_react
     ports:
-      - '80:3000'
+      - '3000:3000'
     links:
       - backend
   backend:
