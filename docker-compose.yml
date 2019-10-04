@@ -1,23 +1,50 @@
-version: '3'
-services:
-  frontend:
-    container_name: frontend
-    restart: always
-    build: ./frontend_react
-    ports:
-      - '3000:3000'
-    links:
-      - backend
-  backend:
-    container_name: backend
-    restart: always
-    build: ./backend-express
-    ports:
-      - '5000:5000'
-    links:
+version: "3"
+services:  
+  app:
+    image: node:10.16.3-alpine
+    volumes:
+      - ./:/app
+    working_dir: /app
+    depends_on:
       - mongo
-  mongo:
-    container_name: mongo
-    image: mongo:4.2.0-bionic
+    environment:
+      NODE_ENV: development
     ports:
-      - '27017:27017'
+      - 5000:5000
+    command: npm run dev  
+  
+  mongo:
+    image: mongo:4.2.0-bionic
+    expose:
+      - 27017
+    volumes:
+      - ~/data/db:/data/db
+
+
+# version: '3'
+# services:
+#   # frontend:
+#   #   container_name: frontend
+#   #   restart: always
+#   #   build: ./frontend_react
+#   #   ports:
+#   #     - '3000:3000'
+#   #   links:
+#   #     - backend
+#   backend:
+#     container_name: backend
+#     image: node:10.16.3-alpine
+#     restart: always
+#     # build: ./backend-express
+#     volumes:
+#       - ./backend-express:/usr/src/app
+#     ports:
+#       - '5000:5000'
+#     links:
+#       - mongo
+#   mongo:
+#     container_name: mongo
+#     image: mongo:4.2.0-bionic
+#     ports:
+#       - '27017:27017'
+
