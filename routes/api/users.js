@@ -11,7 +11,8 @@ const jwt = require("jsonwebtoken");
 // @access  Public
 router.post('/', 
     [
-        check('name', 'Name is required').not().isEmpty(),
+        check('firstName', 'First name is required').not().isEmpty(),
+        check('lastName', 'Last name is required').not().isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
         check('password', 'please enter a password with 6 or more characters').isLength({min:6})
     ],
@@ -21,7 +22,7 @@ router.post('/',
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() });
         }
-        const {name, email, password} = req.body;
+        const {firstName, lastName, email, password} = req.body;
 
         try {
             // See if user exists
@@ -32,9 +33,11 @@ router.post('/',
             }
 
             user = new User({
-                name,
+                firstName,
+                lastName,
                 email
             });
+            
             // Encrypt password
             
             const salt = await bcrypt.genSalt(10);
@@ -43,12 +46,14 @@ router.post('/',
             await user.save();
             
             // return jsonwebtoken
-
+            console.log(user);
             const payload = {
                 user: {
-                    id: user.id
+                    id: user.id,
+                    status: user.status
                 }
             }
+            // console.log(payload);
 
             jwt.sign(payload, config.get('jwtSecret'), {
                 expiresIn: 360000
