@@ -1,8 +1,22 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const connectDB = require('./config/db')
 
 const app = express();
+
+// connect database
+connectDB();
+
+// Init MiddleWare
+app.use(express.json())
+
 app.get("/", (req, res) => res.send("API running!"));
 
+// Define Routers
+app.use('/api/users', require('./routes/api/users'))
+app.use('/api/auth', require('./routes/api/auth'))
+app.use('/api/profile', require('./routes/api/profile'))
+app.use('/api/posts', require('./routes/api/posts'))
+
 const PORT = 5000;
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
