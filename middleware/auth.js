@@ -7,7 +7,7 @@ module.exports = function(req, res, next) {
 
     // check if no token
     if(!token) {
-        return res.status(401).json({ meg: "No token, auth denied" });
+        return res.status(401).json({ msg: "No token, auth denied" });
     } 
 
     // verify token
@@ -15,6 +15,7 @@ module.exports = function(req, res, next) {
         const decoded = jwt.verify(token, config.get("jwtSecret"));
 
         req.user = decoded.user;
+        req.status = decoded.status;
         next();
     } catch(err) {
         res.status(401).json({msg: 'token is not valid'});
