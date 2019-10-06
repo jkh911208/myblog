@@ -1,12 +1,18 @@
 import React, { Fragment } from "react";
 
 const jumbotronStyle = {
-  marginBottom: "1rem",
-  paddingTop: "15%",
-  paddingBottom: "15%",
+  // marginBottom: "1rem",
+  // paddingTop: "13%",
+  // paddingBottom: "7%",
   backgroundSize: "cover",
-  backgroundImage:
-    "url(https://github.com/jkh911208/myblog/blob/master/client/src/components/images/jumbotron.jpg)"
+  backgroundColor: "transparent",
+  backgroundImage: "url(./images/jumbotron.jpg)"
+};
+
+const jumbotronTextStyle = {
+  color: "white",
+  textAlign: "center",
+  fontSize: "6vw"
 };
 
 const Jumbotron = () => {
@@ -14,11 +20,8 @@ const Jumbotron = () => {
     <Fragment>
       <div className="jumbotron jumbotron-fluid" style={jumbotronStyle}>
         <div className="container">
-          <h1 className="display-4">Fluid jumbotron</h1>
-          <p className="lead">
-            This is a modified jumbotron that occupies the entire horizontal
-            space of its parent.
-          </p>
+          <h1 style={jumbotronTextStyle}>import james.jeon</h1>
+          <h1 style={jumbotronTextStyle}>print("Welcome!")</h1>
         </div>
       </div>
     </Fragment>

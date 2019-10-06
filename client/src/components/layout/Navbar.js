@@ -31,7 +31,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item nav-link">
-                <Link to="/about" style={{ textDecoration: "none" }}>
+                <Link to="/about" style={linkStyle}>
                   <h4>
                     <font color="white">About</font>
                   </h4>
