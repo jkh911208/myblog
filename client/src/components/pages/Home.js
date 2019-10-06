@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Jumbotron from "../subcomponents/Jumbotron";
+import { Link } from "react-router-dom";
 
 const imgStyle = {
   objectFit: "cover",
@@ -37,18 +38,27 @@ const Home = () => {
               Machine Learning, building custom PC and Virtualization. I like to
               learn new technologies and I gain knowledge by trial and errors.
             </p>
-            <button type="button" className="btn btn-outline-dark pt-2">
-              More About Me
-            </button>
+            <Link to="/about">
+              <button type="button" className="btn btn-outline-dark pt-2">
+                More About Me
+              </button>
+            </Link>
           </div>
           <div className="col-sm-6 mb-4">
-            <img
-              className="img-responsive"
-              src="images/me.jpg"
-              class="rounded"
-              alt="Linkedin"
-              style={imgStyle}
-            />
+            <a
+              href="https://www.linkedin.com/in/gyuhyongjeon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={linkStyle}
+            >
+              <img
+                className="img-responsive"
+                src="images/me.jpg"
+                class="rounded"
+                alt="Linkedin"
+                style={imgStyle}
+              />
+            </a>
           </div>
         </div>
       </div>

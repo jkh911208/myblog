@@ -33,7 +33,7 @@ const Navbar = () => {
               <li className="nav-item nav-link">
                 <Link to="/about" style={linkStyle}>
                   <h4>
-                    <font color="white">About</font>
+                    <font color="white">About Me</font>
                   </h4>
                 </Link>
               </li>
