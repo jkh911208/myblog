@@ -11,7 +11,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
         <div className="container">
           <button
-            className="navbar-toggler"
+            className="navbar-toggler ml-auto"
             type="button"
             data-toggle="collapse"
             data-target="#topNavbar"
@@ -23,14 +23,14 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="topNavbar">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item nav-link">
+              <li className="nav-item nav-link ml-auto">
                 <Link to="/" style={linkStyle}>
                   <h4>
                     <font color="white">Home</font>
                   </h4>
                 </Link>
               </li>
-              <li className="nav-item nav-link">
+              <li className="nav-item nav-link ml-auto">
                 <Link to="/about" style={linkStyle}>
                   <h4>
                     <font color="white">About Me</font>
