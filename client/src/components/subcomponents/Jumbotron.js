@@ -1,9 +1,6 @@
 import React, { Fragment } from "react";
 
 const jumbotronStyle = {
-  // marginBottom: "1rem",
-  // paddingTop: "13%",
-  // paddingBottom: "7%",
   backgroundSize: "cover",
   backgroundColor: "transparent",
   backgroundImage: "url(./images/jumbotron.jpg)"
