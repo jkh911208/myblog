@@ -54,7 +54,6 @@ const Home = () => {
               <img
                 className="img-responsive"
                 src="images/me.jpg"
-                class="rounded"
                 alt="Linkedin"
                 style={imgStyle}
               />
