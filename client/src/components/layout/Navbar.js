@@ -30,10 +30,19 @@ const Navbar = () => {
                   </h5>
                 </Link>
               </li>
+
               <li className="nav-item nav-link mr-auto">
                 <Link to="/about" style={linkStyle}>
                   <h5>
                     <font color="white">About Me</font>
+                  </h5>
+                </Link>
+              </li>
+
+              <li className="nav-item nav-link mr-auto">
+                <Link to="/contact" style={linkStyle}>
+                  <h5>
+                    <font color="white">Contact</font>
                   </h5>
                 </Link>
               </li>
